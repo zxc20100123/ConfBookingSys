@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <body>
+    <main>
+      {% if messages %}
+        {% for message in messages %}
+          {% if message.tags == "error" %}
+            <div class="alert alert-danger" role="alert">
+              {{ message }}
+            </div>
+          {% else %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+              {{ message }}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      <br/>
+      {% if bookedrooms %}
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <table class="table table-image">
+                <thead class="table-dark">
+                <tr>
+                  <th scope="col" class="text-center">Room</th>
+                  <th scope="col" class="text-center">Location</th>
+                  <th scope="col" class="text-center">Date</th>
+                  <th scope="col" class="text-center">Hour</th>
+                  <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for room in bookedrooms %}
+                  <tr>
+                    <th class="w-25">
+                      <img src="{{ room.room.image.url }}" class="img-fluid img-thumbnail" alt="room">
+                    </th>
+                    <td class="align-middle text-center">{{ room.room.location }}</td>
+                    <td class="align-middle text-center">{{ room.bookedDate }}</td>
+                    <td class="align-middle text-center">{{ room.bookedHour }}</td>
+                    <td class="align-middle text-center">
+                      <a href="{% url 'cancel' pk=room.pk %}" class="btn btn-warning">Cancel</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </main>
+  </body>
+{% endblock %}

@@ -1,0 +1,8 @@
+# ConfBookingSystem/.gitignore
+
+venv
+*.pyc
+__pycache__
+static
+db.sqlite3
+.env

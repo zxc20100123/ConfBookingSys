@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <body>
+    <main>
+      {% if messages %}
+        {% for message in messages %}
+          {% if message.tags == "error" %}
+            <div class="alert alert-danger" role="alert">
+              {{ message }}
+            </div>
+          {% else %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+              {{ message }}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      <section class="section" id="next">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7 mx-auto text-center mb-5">
+              <h2 class="heading">Check Availability</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="block-32">
+              <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <label for="book_date" class="font-weight-bold text-black">Date</label>
+                    <div class="field-icon-wrap">
+                      <div class="icon"><span class="icon-calendar"></span></div>
+                      {{ form.date }}
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <label for="book_hour" class="font-weight-bold text-black">Time</label>
+                    <div class="field-icon-wrap">
+                      <div class="icon"><span class="icon-calendar"></span></div>
+                      {{ form.hour }}
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <label for="book_hour" class="font-weight-bold text-black">Number of People</label>
+                    <div class="field-icon-wrap">
+                      {{ form.hc }}
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 align-self-end">
+                    <button class="btn btn-success btn-block text-white">Check Availability</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br/>
+      {% if avarooms %}
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <table class="table table-image">
+                <thead class="table-dark">
+                <tr>
+                  <th scope="col" class="text-center">Room</th>
+                  <th scope="col" class="text-center">Location</th>
+                  <th scope="col" class="text-center">Capacity</th>
+                  <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for room in avarooms %}
+                  <tr>
+                    <th class="w-25">
+                      <img src="{{ room.image.url }}" class="img-fluid img-thumbnail" alt="room">
+                    </th>
+                    <td class="align-middle text-center">{{ room.location }}</td>
+                    <td class="align-middle text-center">{{ room.cap }}</td>
+                    <td class="align-middle text-center">
+                      <a href="{% url 'booking' pk=room.pk %}" class="btn btn-info">Book</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </main>
+  </body>
+{% endblock %}
