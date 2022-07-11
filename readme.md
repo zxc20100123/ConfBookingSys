@@ -31,7 +31,7 @@ Open cmd and cd to where the project folder and run:
 python manage.py runserver
 ```
 
-Date and time field currently works on:
+Date and time field currently works on:\
 :heavy_check_mark: Chrome\
 :heavy_check_mark: Edge\
 :x: Firefox
