@@ -38,7 +38,7 @@ Date and time field currently works on:\
 
 ## Login
 
-Open a browser and go to **[http://127.0.0.1:8000/home](http://127.0.0.1:8000/home)**, where you'll be redirect to login page and asked to log in or register.
+Open a browser and go to **[http://127.0.0.1:8000/home](http://127.0.0.1:8000/home)**, where you'll be redirected to login page and asked to log in or register.
 
 You can also create an admin account by typing the following command in cmd:
 ```python
