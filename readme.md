@@ -13,8 +13,8 @@ pip install -r requirements.txt
 
 Before running the project, there are few things need to be done first.
 
-Firstly, you'll need a **secret key** for the django project. See how to get one **[here](https://stackoverflow.com/questions/4664724/distributing-django-projects-with-unique-secret-keys)**.
-Secondly, you'll need to sign up on **[Cloudinary](https://cloudinary.com/)** to obtain your cloud where you'll be storing medias.
+Firstly, you'll need a **secret key** for the django project. See how to get one **[here](https://stackoverflow.com/questions/4664724/distributing-django-projects-with-unique-secret-keys)**.\
+Secondly, you'll need to sign up on **[Cloudinary](https://cloudinary.com/)** to obtain your cloud where you'll be storing medias.\
 Lastly, create a **.env** file in the root folder of the project with:
 ```
 SECRET_KEY = 'your_secret_key'
