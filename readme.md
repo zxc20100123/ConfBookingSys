@@ -32,8 +32,8 @@ python manage.py runserver
 ```
 
 Date and time field currently works on:
-:heavy_check_mark: Chrome
-:heavy_check_mark: Edge
+:heavy_check_mark: Chrome\
+:heavy_check_mark: Edge\
 :x: Firefox
 
 ## Login
